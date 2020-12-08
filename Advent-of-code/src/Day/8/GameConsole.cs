@@ -24,7 +24,7 @@ namespace Advent_of_code.src.Day._8
             }
             string argument1 = arguments[1].Remove('+');
             argument1 = argument1.Remove('-');
-            int digit = Convert.ToInt32(argument1.Remove('+'));
+            int digit = Convert.ToInt32(argument1.Remove('+')); 
             if (arguments[0].Equals("acc"))
             {
                 if(isPositive)

@@ -9,7 +9,7 @@ namespace Advent_of_code.Day._7
     {
         public static void Start()
         {
-            BagGraph bagGraph = new BagGraph();
+            BagGraph bagGraph = new BagGraph(); 
 
             //Creation of nodes
             string[] lines = System.IO.File.ReadAllLines(Directory.GetCurrentDirectory().Replace(@"bin\Debug\netcoreapp3.1", @"src\Day\7\input.txt"));
