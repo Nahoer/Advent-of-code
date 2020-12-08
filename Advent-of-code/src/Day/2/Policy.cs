@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Advent_of_code.src.Day._2
 {
-    public class Policy
+    public abstract class Policy
     {
         public char Key { get; private set; }
         public int Min { get; private set; }
@@ -16,5 +16,8 @@ namespace Advent_of_code.src.Day._2
             this.Min = min;
             this.Max = max;
         }
+
+        public abstract Boolean IsValid(string content);
+        
     }
 }

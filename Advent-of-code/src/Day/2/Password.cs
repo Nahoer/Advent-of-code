@@ -13,9 +13,9 @@ namespace Advent_of_code.src.Day._2
             this.Content = content;
         }
 
-        public void SetPolicy(char key, int min, int max)
+        public void SetPolicy(Policy policy)
         {
-            this.Policy = new Policy(key, min, max);
+            this.Policy = policy;
         }
 
         public Boolean IsValid()
@@ -23,21 +23,8 @@ namespace Advent_of_code.src.Day._2
             Boolean isValid = false;
             if (this.Policy != null)
             {
-                int count = 0;
-                foreach (char c in this.Content)
-                {
-                    if (c.Equals(this.Policy.Key))
-                    {
-                        count++;
-                    }
-                }
-
-                if (count <= this.Policy.Max && count >= this.Policy.Min)
-                {
-                    isValid = true;
-                }
+                isValid = this.Policy.IsValid(this.Content);
             }
-
             return isValid;
         }
     }

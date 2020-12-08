@@ -16,10 +16,11 @@ namespace Advent_of_code.src.Day._2
                 string[] words = line.Split(" ");
                 string[] extremum = words[0].Split("-");
                 Password password = new Password(words[2]);
-                password.SetPolicy(words[1].ToCharArray()[0], Convert.ToInt32(extremum[0]), Convert.ToInt32(extremum[1]));
+                password.SetPolicy(new PolicyVersion1(words[1].ToCharArray()[0], Convert.ToInt32(extremum[0]), Convert.ToInt32(extremum[1])));
                 passwords.Add(password);
             }
 
+            //Part 1
             int count = 0;
             foreach(Password password in passwords)
             {
@@ -29,6 +30,21 @@ namespace Advent_of_code.src.Day._2
                 }
             }
 
+            Console.WriteLine(count);
+
+            //Part 2
+            foreach (Password password in passwords)
+            {
+                password.SetPolicy(new PolicyVersion2(password.Policy.Key, password.Policy.Min, password.Policy.Max));
+            }
+            count = 0;
+            foreach (Password password in passwords)
+            {
+                if (password.IsValid())
+                {
+                    count++;
+                }
+            }
             Console.WriteLine(count);
         }
     }
