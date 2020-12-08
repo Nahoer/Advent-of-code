@@ -11,7 +11,14 @@ namespace Advent_of_code.src.Day._8
         {
             string[] lines = System.IO.File.ReadAllLines(Directory.GetCurrentDirectory().Replace(@"bin\Debug\netcoreapp3.1", @"src\input\input8.txt")); 
             GameConsole g = new GameConsole();
-            Console.WriteLine(g.RunScript(lines)); 
+
+            //Part 1
+            int line = g.GetLoopLine(lines);
+            Console.WriteLine(line);
+
+            //Part 2
+            lines = g.FixLoop(lines);
+            Console.WriteLine(g.Accumulator);
             
         }
 

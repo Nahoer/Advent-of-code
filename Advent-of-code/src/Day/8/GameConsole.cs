@@ -14,16 +14,16 @@ namespace Advent_of_code.src.Day._8
         }
 
 
-        public int RunScript(string[] script)
+        public int GetLoopLine(string[] script)
         {
+            this.Accumulator = 0;
             Boolean end = false;
+            
             
             int indexLine = 0;
             List<int> markedLine = new List<int>();
             while (!end)
             {
-                Console.Write("Line " + indexLine);
-                Console.WriteLine(" | "+script[indexLine]);
                 Boolean next = false;
                 markedLine.Add(indexLine);
                 string line = script[indexLine];
@@ -42,18 +42,15 @@ namespace Advent_of_code.src.Day._8
                         if (indexLine+digit < script.Length)
                         {
                             indexLine += digit;
-                            Console.WriteLine("   jump to " + indexLine);
                         }
                         else
                         {
                             next = true;
-                            Console.WriteLine("    "+(indexLine+1) + " is too high, skip");
                         }
                         
                     }
                     else
                     {
-                        Console.WriteLine("    line already read--------------");
                         end = true;
                     }
                     
@@ -66,14 +63,45 @@ namespace Advent_of_code.src.Day._8
                     }
                     next = true; ;
                 }
-                Console.WriteLine("   Accumlateur: " + this.Accumulator);
                 if (next)
                 {
-                    Console.WriteLine("   next line");
                     indexLine++;
                 }
+
+                if (script.Length.Equals(indexLine))
+                {
+                    end = true;
+                    indexLine = -1;
+                }
+
             }
-            return this.Accumulator;
+
+            return indexLine;
+
+        }
+
+        public string[] FixLoop(string[] script)
+        {
+            string[] scriptCopy = (string[])script.Clone();
+            int i = 0;
+            while (this.GetLoopLine(scriptCopy)!=-1)
+            {
+                scriptCopy = (string[])script.Clone();
+                string[] words = scriptCopy[i].Split(" ");
+                if (words[0].Equals("jmp"))
+                {
+                    scriptCopy[i] = scriptCopy[i].Replace("jmp", "nop");
+
+                }
+                else if (words[0].Equals("nop"))
+                {
+                    scriptCopy[i] = scriptCopy[i].Replace("nop", "jmp");
+                }
+
+                i++;
+            }
+
+            return scriptCopy;
         }
 
     }
