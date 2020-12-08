@@ -6,4 +6,8 @@
     <RootNamespace>Advent_of_code</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="src\input\" />
+  </ItemGroup>
+
 </Project>
