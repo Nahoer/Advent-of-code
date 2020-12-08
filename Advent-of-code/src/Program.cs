@@ -4,6 +4,7 @@ using System;
 using Advent_of_code.src.Day._8;
 using Advent_of_code.src.Day._1;
 using Advent_of_code.src.Day._2;
+using Advent_of_code.src.Day._3;
 
 namespace Advent_of_code
 {
@@ -15,7 +16,10 @@ namespace Advent_of_code
             //Main1.Start();
 
             //day 2
-            Main2.Start();
+            //Main2.Start();
+
+            //day 3
+            //Main3.Start();
 
             //Day 7
             //Main7.Start();
