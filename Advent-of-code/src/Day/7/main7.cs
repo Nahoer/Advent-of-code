@@ -12,7 +12,7 @@ namespace Advent_of_code.Day._7
             BagGraph bagGraph = new BagGraph();
 
             //Creation of nodes
-            string[] lines = System.IO.File.ReadAllLines(Directory.GetCurrentDirectory().Replace(@"bin\Debug\netcoreapp3.1", @"Day\7\input.txt"));
+            string[] lines = System.IO.File.ReadAllLines(Directory.GetCurrentDirectory().Replace(@"bin\Debug\netcoreapp3.1", @"src\Day\7\input.txt"));
             foreach (string line in lines)
             {
                 string[] words = line.Split(" ");
@@ -45,6 +45,7 @@ namespace Advent_of_code.Day._7
 
             //Part 2
             Console.WriteLine(bagGraph.Bags["shiny gold"].TotalWeightSum());
+            
         }
     }
 }
