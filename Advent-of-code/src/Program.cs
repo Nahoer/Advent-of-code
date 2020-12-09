@@ -20,7 +20,7 @@ namespace Advent_of_code
             //Main2.Start();
 
             //day 3
-            //Main3.Start();
+            Main3.Start();
 
             //Day 7
             //Main7.Start();
@@ -29,7 +29,7 @@ namespace Advent_of_code
             //Main8.Start();
 
             //Day 9
-            Main9.Start();
+            //Main9.Start();
         }
     }
 }
